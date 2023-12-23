@@ -1,4 +1,4 @@
-package poo.desafios.streamingaudio;
+package poo.streamingaudio;
 
 public class Audio {
     private String titulo;

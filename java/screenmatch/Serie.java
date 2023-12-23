@@ -1,4 +1,4 @@
-package poo.screenmatch;
+package screenmatch;
 
 public class Serie extends Titulo {
     private int temporadas;

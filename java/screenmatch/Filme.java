@@ -1,4 +1,4 @@
-package poo.screenmatch;
+package screenmatch;
 
 public class Filme extends Titulo {
     private String diretor;

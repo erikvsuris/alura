@@ -1,4 +1,4 @@
-package poo.desafios.appbanco;
+package poo.appbanco;
 
 public class AppBanco {
     public static void main(String[] args) {

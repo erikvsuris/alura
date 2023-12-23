@@ -1,6 +1,6 @@
-package poo.screenmatch;
+package screenmatch;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
     protected String nome;
     protected int anoDeLancamento;
     protected boolean incluidoNoPlano;
@@ -38,10 +38,6 @@ public class Titulo {
         return duracaoEmMinutos;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public void setAnoDeLancamento(int anoDeLancamento) {
         this.anoDeLancamento = anoDeLancamento;
     }
@@ -60,10 +56,14 @@ public class Titulo {
     }
 
     @Override
+    public int compareTo(Titulo other) {
+        return this.nome.compareTo(other.nome);
+    }
+
+    @Override
     public String toString() {
         return "[nome=" + nome + ", anoDeLancamento=" + anoDeLancamento + ", incluidoNoPlano=" + incluidoNoPlano
                 + ", somaDasAvaliacoes=" + somaDasAvaliacoes + ", numeroDeAvaliacoes=" + numeroDeAvaliacoes
                 + ", duracaoEmMinutos=" + duracaoEmMinutos;
     }
-
 }

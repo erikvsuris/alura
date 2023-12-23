@@ -1,4 +1,4 @@
-package desafios;
+package loops;
 import java.util.Scanner;
 
 public class ContaBancaria {

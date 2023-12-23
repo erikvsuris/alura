@@ -1,15 +1,16 @@
-package poo.desafios.appbanco;
+package listas.banco;
 
 public class ContaBancaria {
-    private String numeroDaConta;
+    private String numeroConta;
     private double saldo;
     
-    public ContaBancaria(String numeroDaConta) {
-        this.numeroDaConta = numeroDaConta;
+    public ContaBancaria(String numeroConta) {
+        if (numeroConta != null && numeroConta.length() > 0)
+            this.numeroConta = numeroConta;
     }
 
-    public String getNumeroDaConta() {
-        return numeroDaConta;
+    public String getNumeroConta() {
+        return numeroConta;
     }
 
     public double getSaldo() {
@@ -17,7 +18,7 @@ public class ContaBancaria {
     }
 
     public void depositar(double valorDeposito) {
-        if (valorDeposito > 0) saldo+=valorDeposito;
+        if (valorDeposito > 0) saldo += valorDeposito;
     }
 
     public double sacar(double valorSaque) {
@@ -31,6 +32,8 @@ public class ContaBancaria {
 
     @Override
     public String toString() {
-        return "[numeroDaConta=" + numeroDaConta + ", saldo=" + saldo;
+        return "ContaBancaria [numeroDaConta=" + numeroConta + ", saldo=" + saldo + "]";
     }
+
+    
 }

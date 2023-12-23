@@ -1,4 +1,4 @@
-package poo.desafios.conversormoeda;
+package poo.conversormoeda;
 
 public interface ConversaoFinanceira {
     double converterDolarParaReal(double valorEmDolares);

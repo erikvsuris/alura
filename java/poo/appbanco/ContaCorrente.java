@@ -1,4 +1,4 @@
-package poo.desafios.appbanco;
+package poo.appbanco;
 
 public class ContaCorrente extends ContaBancaria {
     private double tarifaMensal = 19.8;
@@ -13,6 +13,6 @@ public class ContaCorrente extends ContaBancaria {
 
     @Override
     public String toString() {
-        return "ContaCorrente " + super.toString() + ", tarifaMensal=" + tarifaMensal + "]";
+        return "ContaCorrente [numeroDaConta=" + getNumeroConta() + ", saldo=" + getSaldo() + ", tarifaMensal=" + tarifaMensal + "]";
     }
 }

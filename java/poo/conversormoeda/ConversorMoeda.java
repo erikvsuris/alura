@@ -1,4 +1,4 @@
-package poo.desafios.conversormoeda;
+package poo.conversormoeda;
 
 public class ConversorMoeda implements ConversaoFinanceira {
     @Override
