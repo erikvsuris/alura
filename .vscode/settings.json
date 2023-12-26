@@ -1,0 +1,8 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\erikv\\OneDrive\\Ambiente de Trabalho\\gson-2.10.1.jar",
+        "java/screenmatch/dependencias/gson-2.10.1.jar",
+        "java/dependencias/gson-2.10.1.jar"
+    ]
+}

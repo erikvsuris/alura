@@ -8,28 +8,35 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.Scanner;
 
-public class Busca {
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+public class BuscaTitulo {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Digite o nome do filme que deseja buscar: ");
-        String titulo = scanner.nextLine();
-        String tituloJSON = buscaTitulo(titulo);
-        System.out.println(tituloJSON);
-
+        System.out.println(buscarTitulo(scanner.nextLine()));
         scanner.close();
     }
 
-    public static String buscaTitulo(String titulo) throws IOException, InterruptedException {
+    public static Titulo buscarTitulo(String titulo) throws IOException, InterruptedException {
         String apikey = "77d7785f";
+    
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("https://www.omdbapi.com/?t=" + titulo + "&apikey=" + apikey))
             .build();
         HttpResponse<String> response = client
             .send(request, BodyHandlers.ofString());
-        System.out.println(response.body());
 
-        return response.body();
+        String json = response.body();
+
+        Gson gson = new GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+            .create();
+        TituloOMDB novoTituloOMDB = gson.fromJson(json, TituloOMDB.class);
+        Titulo novoTitulo = new Titulo(novoTituloOMDB);
+
+        return novoTitulo;
     }
 }   

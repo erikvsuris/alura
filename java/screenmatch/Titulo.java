@@ -1,17 +1,26 @@
 package screenmatch;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Titulo implements Comparable<Titulo> {
+    @SerializedName("Title")
     protected String nome;
+    @SerializedName("Year")
     protected int anoDeLancamento;
     protected boolean incluidoNoPlano;
     protected double somaDasAvaliacoes;
     protected int numeroDeAvaliacoes;
     protected int duracaoEmMinutos;
 
-    public Titulo(String nome, int anoDeLancamento, boolean incluidoNoPlano) {
+    public Titulo(String nome, int anoDeLancamento) {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
-        this.incluidoNoPlano = incluidoNoPlano;
+    }
+
+    public Titulo(TituloOMDB novoTituloOMDB) {
+        this.nome = novoTituloOMDB.title();
+        this.anoDeLancamento = Integer.valueOf(novoTituloOMDB.year());
+        this.duracaoEmMinutos = Integer.valueOf(novoTituloOMDB.runtime().substring(0,3).trim());
     }
 
     public String getNome() {
@@ -36,10 +45,6 @@ public class Titulo implements Comparable<Titulo> {
 
     public int getDuracaoEmMinutos() {
         return duracaoEmMinutos;
-    }
-
-    public void setAnoDeLancamento(int anoDeLancamento) {
-        this.anoDeLancamento = anoDeLancamento;
     }
 
     public void setIncluidoNoPlano(boolean incluidoNoPlano) {

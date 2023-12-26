@@ -6,8 +6,8 @@ public class Serie extends Titulo {
     private int minutosPorEpisodio;
     private boolean ativa;
     
-    public Serie(String nome, int anoDeLancamento, boolean incluidoNoPlano, int temporadas, int episodiosPorTemporada, int minutosPorEpisodio, boolean ativa) {
-        super(nome, anoDeLancamento, incluidoNoPlano);
+    public Serie(String nome, int anoDeLancamento, int temporadas, int episodiosPorTemporada, int minutosPorEpisodio, boolean ativa) {
+        super(nome, anoDeLancamento);
         this.temporadas = temporadas;
         this.episodiosPorTemporada = episodiosPorTemporada;
         this.minutosPorEpisodio = minutosPorEpisodio;
