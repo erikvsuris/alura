@@ -16,9 +16,4 @@ public class Filme extends Titulo {
     public void setDiretor(String diretor) {
         this.diretor = diretor;
     }
-
-    @Override
-    public String toString() {
-        return "Filme " + super.toString() + ", diretor=" + diretor + "]";
-    }
 }

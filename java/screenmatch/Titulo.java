@@ -1,11 +1,7 @@
 package screenmatch;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Titulo implements Comparable<Titulo> {
-    @SerializedName("Title")
     protected String nome;
-    @SerializedName("Year")
     protected int anoDeLancamento;
     protected boolean incluidoNoPlano;
     protected double somaDasAvaliacoes;
@@ -19,6 +15,10 @@ public class Titulo implements Comparable<Titulo> {
 
     public Titulo(TituloOMDB novoTituloOMDB) {
         this.nome = novoTituloOMDB.title();
+
+        if (novoTituloOMDB.year().length() > 4)
+            throw new ErroDeConversaoException("Não foi possível converter o ano, String possui mais de 4 caracteres");
+
         this.anoDeLancamento = Integer.valueOf(novoTituloOMDB.year());
         this.duracaoEmMinutos = Integer.valueOf(novoTituloOMDB.runtime().substring(0,3).trim());
     }
@@ -67,8 +67,8 @@ public class Titulo implements Comparable<Titulo> {
 
     @Override
     public String toString() {
-        return "[nome=" + nome + ", anoDeLancamento=" + anoDeLancamento + ", incluidoNoPlano=" + incluidoNoPlano
+        return "Titulo [nome=" + nome + ", anoDeLancamento=" + anoDeLancamento + ", incluidoNoPlano=" + incluidoNoPlano
                 + ", somaDasAvaliacoes=" + somaDasAvaliacoes + ", numeroDeAvaliacoes=" + numeroDeAvaliacoes
-                + ", duracaoEmMinutos=" + duracaoEmMinutos;
+                + ", duracaoEmMinutos=" + duracaoEmMinutos + "]";
     }
 }

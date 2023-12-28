@@ -1,7 +1,9 @@
 <?php
 
-$socios = ["João","Pedro","Paulo"];
+$quadroSocietario = [
+	'12345678910' => ['socio' => 'João', 'cota' => 0.35],
+	'12345678911' => ['socio' => 'Maria', 'cota' => 0.65]
+];
 
-for ($i = 0; $i < count($socios); $i++) { 
-	echo $socios[$i] . PHP_EOL;
-}
+echo $quadroSocietario['12345678910']['cota'];
+// Saída: 0.35

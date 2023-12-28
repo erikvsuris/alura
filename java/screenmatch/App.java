@@ -1,5 +1,8 @@
 package screenmatch;
 
+import java.io.File;
+import java.io.FileReader;
+
 public class App {
     public static void main(String[] args) {
         var catalogo = new Catalogo();
@@ -37,5 +40,10 @@ public class App {
 
         System.out.println("\n --- SCREEN MATCH ---\n");
         System.out.println(catalogo);
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
     }
 }

@@ -50,10 +50,4 @@ public class Serie extends Titulo {
     public void setAtiva(boolean ativa) {
         this.ativa = ativa;
     }
-
-    @Override
-    public String toString() {
-        return "Serie " + super.toString() + ", temporadas=" + temporadas + ", episodiosPorTemporada=" + episodiosPorTemporada
-                + ", minutosPorEpisodio=" + minutosPorEpisodio + ", ativa=" + ativa + "]";
-    }
 }
