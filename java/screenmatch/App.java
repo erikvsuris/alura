@@ -1,8 +1,5 @@
 package screenmatch;
 
-import java.io.File;
-import java.io.FileReader;
-
 public class App {
     public static void main(String[] args) {
         var catalogo = new Catalogo();
