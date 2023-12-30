@@ -1,19 +1,30 @@
 package arquivos;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class App {
-    public static void main(String[] args) throws FileNotFoundException {
-        File arquivo = new File("./java/arquivos/texto.txt");
-        Scanner scanner = new Scanner(arquivo);
+    public static void main(String[] args) throws IOException { 
+        File registro = new File("./java/arquivos/registro.json");
+        FileWriter writer = new FileWriter(registro);
 
-        while (scanner.hasNextLine()) {
-            String linha = scanner.nextLine();
-            System.out.println(linha);
-        }
+        List<Carro> registroCarros = new ArrayList<>();
+        registroCarros.add(new Carro("Mobi", "Fiat", 2023));
+        registroCarros.add(new Carro("C3", "Citroën", 2023));
+        registroCarros.add(new Carro("Kwid", "Renault", 2023));
 
-        scanner.close();
+        Gson gson = new GsonBuilder()
+            .setPrettyPrinting()
+            .create();
+        String registroCarrosJSON = gson.toJson(registroCarros);
+
+        writer.write(registroCarrosJSON);
+        writer.close();
     }
 }
