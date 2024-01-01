@@ -1,13 +1,12 @@
 import fs from 'fs';
 import chalk from 'chalk';
-import { log } from 'console';
 
 // ASSÍNCRONA (async/await)
-async function readFile(path) {
+export default async function readFile(path) {
     try {
         const content = await fs.promises
             .readFile(path, 'utf-8');
-        chalk.green(extractLinks(content));
+        return extractLinks(content);
     } catch (error) {
         handleError(error);
     }
@@ -16,15 +15,13 @@ async function readFile(path) {
 function extractLinks(text) {
     const regex = /\[([^\[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
     const matches = [...text.matchAll(regex)];
-    const results = matches.map(match => (
-        {[match[1]]: match[2]}
-    ));
-    log(results);
+    const results = matches.map(match => ({[match[1]]: match[2]}));
+    return results.length !== 0 ? results : 'Não há links no arquivo';
 }
 
 function handleError(error) {
     if (error)
-        throw new Error(chalk.red(error));
+        throw new Error(chalk.red(error.message));
 }
 
 // ASSÍNCRONA (then)
@@ -40,5 +37,3 @@ function handleError(error) {
 //     if (error) throw new Error(chalk.red(error));
 //     log(chalk.green(text));
 // });
-
-export default readFile;
