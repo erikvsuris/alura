@@ -1,4 +1,4 @@
-package exceptions.Senha;
+package exceptions.senha;
 
 public class SenhaInvalidaException extends Exception {
     @Override

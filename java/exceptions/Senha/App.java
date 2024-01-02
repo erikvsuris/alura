@@ -1,4 +1,4 @@
-package exceptions.Senha;
+package exceptions.senha;
 
 public class App {
     public static void main(String[] args) {
