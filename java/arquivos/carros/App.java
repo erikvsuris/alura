@@ -1,4 +1,4 @@
-package arquivos;
+package arquivos.carros;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -11,7 +11,7 @@ import com.google.gson.GsonBuilder;
 
 public class App {
     public static void main(String[] args) throws IOException { 
-        File registro = new File("./java/arquivos/registro.json");
+        File registro = new File("./java/arquivos/carros/registro.json");
         FileWriter writer = new FileWriter(registro);
 
         List<Carro> registroCarros = new ArrayList<>();

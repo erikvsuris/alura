@@ -1,4 +1,4 @@
-package arquivos;
+package arquivos.carros;
 
 public class Carro {
     private String modelo;
